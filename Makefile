@@ -1,4 +1,5 @@
-BINARY=go-api-boilerplate
+BUILD_DIR=$(shell pwd)/build
+BINARY=${BUILD_DIR}/go-api-boilerplate
 SOURCE=cmd/go-api-boilerplate/main.go
 GOARCH=amd64
 GOOS=linux
@@ -8,12 +9,17 @@ COMMIT=$(shell git rev-parse HEAD)
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
 # Symlink into GOPATH
-BUILD_DIR=$(shell pwd)
+#BUILD_DIR=$(shell pwd)
 CURRENT_DIR=$(shell pwd)
 BUILD_DIR_LINK=$(shell readlink ${BUILD_DIR})
 
 # Setup the -ldflags option for go build here, interpolate the variable values
 LDFLAGS= -ldflags "-X main.VERSION=${VERSION} -X main.COMMIT=${COMMIT} -X main.BRANCH=${BRANCH}"
+
+$(BUILD_DIR):
+	if [ ! -d "$(BUILD_DIR)" ];then
+		mkdir $(BUILD_DIR)
+	fi
 
 # Build the project
 all: pre link clean test build
@@ -32,7 +38,7 @@ link:
 	fi
 
 build:
-	GOOS=${GOOS} GOARCH=${GOARCH} go build ${LDFLAGS} -o ./build/${BINARY} ${SOURCE}
+	GOOS=${GOOS} GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY} ${SOURCE}
 
 test:
 	go test -v
