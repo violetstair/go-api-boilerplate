@@ -22,7 +22,7 @@ var LOGFORMAT = `{` +
 
 var ALLOWORIGIN = "*"
 
-func application(e *echo.Echo) {
+func Application(e *echo.Echo) {
 	e.Use(middleware.Recover())
 
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{

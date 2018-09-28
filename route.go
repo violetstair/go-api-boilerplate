@@ -5,6 +5,6 @@ import (
 
 )
 
-func route(e *echo.Echo) {
+func Route(e *echo.Echo) {
 	e.GET("/", HelloRoot)
 }

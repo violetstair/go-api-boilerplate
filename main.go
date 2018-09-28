@@ -15,7 +15,7 @@ func init() {
 
 func main() {
 	e := echo.New()
-	application(e)
-	route(e)
-	e.Logger.Fatal(e.Start(getEnv("ADDRESS", ":8000")))
+	Application(e)
+	Route(e)
+	e.Logger.Fatal(e.Start(GetEnv("ADDRESS", ":8000")))
 }

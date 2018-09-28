@@ -10,8 +10,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-
-
 func init() {
 	engine := connectDB()
 	syncDB(engine)
@@ -22,10 +20,10 @@ func connectDB() *xorm.Engine {
 	var engine *xorm.Engine
 
 	var (
-		DBMS_ID = getEnv("DBMS_ID", "account")
-		DBMS_PW = getEnv("DBMS_PW", "password")
-		CONNECT = getEnv("CONNECT", "localhost")
-		TABLE   = getEnv("TABLE",   "owdin")
+		DBMS_ID = GetEnv("DBMS_ID", "account")
+		DBMS_PW = GetEnv("DBMS_PW", "password")
+		CONNECT = GetEnv("CONNECT", "localhost")
+		TABLE   = GetEnv("TABLE",   "owdin")
 		DbURI  = fmt.Sprintf(
 			"%s:%s@tcp(%s)/%s?%s",
 			DBMS_ID,
