@@ -1,4 +1,4 @@
-package main
+package boilerplate
 
 import (
 	"github.com/eoscanada/eos-go"

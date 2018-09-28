@@ -1,4 +1,4 @@
-package main
+package boilerplate
 
 type EOSInfo struct {
 	Version       string `json:"version"`

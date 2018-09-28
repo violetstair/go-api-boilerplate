@@ -14,4 +14,5 @@
 # Enviroments
 .idea/*
 .env
+configs/env
 vendor/
