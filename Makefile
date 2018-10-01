@@ -1,6 +1,7 @@
+PROJECT_NAME=go-api-boilerplate
 BUILD_DIR=$(shell pwd)/build
-BINARY=${BUILD_DIR}/go-api-boilerplate
-SOURCE=cmd/go-api-boilerplate/main.go
+BINARY=${BUILD_DIR}/${PROJECT_NAME}
+SOURCE=cmd/${PROJECT_NAME}/main.go
 GOARCH=amd64
 GOOS=linux
 
