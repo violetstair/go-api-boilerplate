@@ -1,2 +1,3 @@
 # go-api-boilerplate
-boilerplate
+
+api boilerplate

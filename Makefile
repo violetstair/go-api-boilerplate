@@ -1,6 +1,10 @@
 BUILD_DIR=$(shell pwd)/build
-BINARY=${BUILD_DIR}/go-api-boilerplate
-SOURCE=cmd/go-api-boilerplate/main.go
+
+API_NAME=go-api-boilerplate
+API_BUILD_DIR=$(shell pwd)/build/${API_NAME}
+API_SOURCE=cmd/${API_NAME}/main.go
+API_BINARY=${API_BUILD_DIR}/${API_NAME}
+
 GOARCH=amd64
 GOOS=linux
 
@@ -15,11 +19,6 @@ BUILD_DIR_LINK=$(shell readlink ${BUILD_DIR})
 
 # Setup the -ldflags option for go build here, interpolate the variable values
 LDFLAGS= -ldflags "-X main.VERSION=${VERSION} -X main.COMMIT=${COMMIT} -X main.BRANCH=${BRANCH}"
-
-$(BUILD_DIR):
-	if [ ! -d "$(BUILD_DIR)" ];then
-		mkdir $(BUILD_DIR)
-	fi
 
 # Build the project
 all: pre link clean test build
@@ -38,12 +37,17 @@ link:
 	fi
 
 build:
-	GOOS=${GOOS} GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY} ${SOURCE}
+	GOOS=${GOOS} GOARCH=${GOARCH} go build ${LDFLAGS} -o ${API_BINARY} ${API_SOURCE}
+
+osx: api
+
+api:
+	go build -o ${API_BINARY} ${API_SOURCE}
 
 test:
 	go test -v
 
 clean:
-	rm -f ${BINARY}
+	rm -f ${API_BINARY}
 
 .PHONY: pre link build test clean
