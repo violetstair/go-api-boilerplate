@@ -1,4 +1,4 @@
-package boilerplate
+package boilerplate_api
 
 import (
 	"github.com/labstack/echo"

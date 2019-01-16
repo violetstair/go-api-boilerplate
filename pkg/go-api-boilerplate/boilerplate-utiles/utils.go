@@ -1,27 +1,20 @@
-package boilerplate
+package boilerplate_utiles
 
 import (
 	"github.com/eoscanada/eos-go"
-	"os"
+	"github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-structure"
 )
 
-func GetEnv(key, fallback string) string {
-	if value, ok := os.LookupEnv(key); ok {
-		return value
-	}
-	return fallback
-}
-
-func GetServerVersion() (EOSInfo, error) {
-	var ei EOSInfo
+func GetServerVersion() (ei boilerplate_structure.EOSInfo, err error) {
 	api := eos.New("https://eos-usw.owdin.network:9999")
 
 	infoResp, err := api.GetInfo()
 	if err != nil {
-		return ei, err
+		return
 	}
+
 	ei.Version = infoResp.ServerVersion
 	ei.VersionString = infoResp.ServerVersionString
-	return ei, nil
 
+	return
 }
