@@ -1,4 +1,4 @@
-FROM sketch
+FROM scratch
 
 COPY . ./
 
