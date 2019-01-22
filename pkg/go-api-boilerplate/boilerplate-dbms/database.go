@@ -1,10 +1,10 @@
-package boilerplate_dbms
+package dbms
 
 import (
 	"fmt"
-	"time"
-	"runtime"
 	"log/syslog"
+	"runtime"
+	"time"
 
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
@@ -12,6 +12,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// Storage : Storage
 type Storage struct {
 	Index     int       `xorm:"index pk autoincr unique" json:"index"`
 	CreatedAt time.Time `xorm:"created"                  json:"created_at"`
@@ -29,22 +30,22 @@ func connectKeyDB() *xorm.Engine {
 
 	DbURI := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s?%s",
-		DB_ACCOUNT,
-		DB_PASSWORD,
-		DB_SERVER,
-		DB_PORT,
-		DB_TABLE,
-		DB_SETTING,
+		DBAccount,
+		DBPassword,
+		DBServer,
+		DBPort,
+		DBTable,
+		DBSetting,
 	)
 	if runtime.GOOS == "darwin" {
 		DbURI = fmt.Sprintf(
 			"%s:%s@tcp(%s:%s)/%s?%s",
-			DB_DEV_ACCOUNT,
-			DB_DEV_PASSWORD,
-			DB_DEV_SERVER,
-			DB_DEV_PORT,
-			DB_DEV_TABLE,
-			DB_DEV_SETTING,
+			DBDevAccount,
+			DBDevPassword,
+			DBDevServer,
+			DBDevPort,
+			DBDevTable,
+			DBDevSetting,
 		)
 	}
 
@@ -65,7 +66,7 @@ func connectKeyDB() *xorm.Engine {
 	return engine
 }
 
-func syncKeyDB( engine *xorm.Engine ) {
+func syncKeyDB(engine *xorm.Engine) {
 	if err := engine.Sync2(new(Storage)); err != nil {
 		panic(err)
 	}

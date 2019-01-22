@@ -1,8 +1,9 @@
-package boilerplate_queue
+package queue
 
 import (
-	"log"
 	"encoding/json"
+	"log"
+
 	"github.com/streadway/amqp"
 )
 

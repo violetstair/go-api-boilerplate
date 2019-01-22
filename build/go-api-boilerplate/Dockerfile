@@ -1,7 +1,7 @@
-FROM sketch
+FROM scratch
 
-COPY . ./
+ADD go-api-boilerplate /
+
+CMD ["./go-api-boilerplate"]
 
 EXPOSE 8000
-
-RUN ./go-api-boilerplate

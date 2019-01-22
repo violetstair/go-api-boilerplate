@@ -1,12 +1,12 @@
-package boilerplate_api
+package api
 
 import (
 	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-utiles"
-	"github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-structure"
+	boilerplate_structure "github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-structure"
+	boilerplate_utiles "github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-utiles"
 )
 
 func HelloRoot(c echo.Context) error {

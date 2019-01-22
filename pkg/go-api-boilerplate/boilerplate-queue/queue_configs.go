@@ -1,4 +1,4 @@
-package boilerplate_queue
+package queue
 
 import (
 	"fmt"
@@ -18,7 +18,6 @@ var (
 	QUEUE_DEV_SERVER   = "127.0.0.1"
 	QUEUE_DEV_PORT     = "5672"
 )
-
 
 func getQueueEndPoint() (connUrl string) {
 	connUrl = fmt.Sprintf(
