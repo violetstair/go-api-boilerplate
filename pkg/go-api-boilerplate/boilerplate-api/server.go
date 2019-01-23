@@ -1,4 +1,4 @@
-package boilerplate_api
+package api
 
 import (
 	"github.com/labstack/echo"
@@ -35,6 +35,6 @@ func Application(e *echo.Echo) {
 	}))
 }
 
-func TokenAuth() (bool) {
+func TokenAuth() bool {
 	return true
 }

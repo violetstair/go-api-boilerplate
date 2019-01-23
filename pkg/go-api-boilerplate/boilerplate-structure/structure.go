@@ -1,4 +1,4 @@
-package boilerplate_structure
+package structure
 
 type EOSInfo struct {
 	Version       string `json:"version"`
@@ -6,7 +6,7 @@ type EOSInfo struct {
 }
 
 type RESPONSE struct {
-	Status    int         `json:"status"`
-	Message   string      `json:"message"`
-	Items     interface{} `json:"items"`
+	Status  int         `json:"status"`
+	Message string      `json:"message"`
+	Items   interface{} `json:"items"`
 }

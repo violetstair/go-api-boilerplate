@@ -1,8 +1,8 @@
-package boilerplate_utiles
+package utiles
 
 import (
-	"github.com/eoscanada/eos-go"
-	"github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-structure"
+	eos "github.com/eoscanada/eos-go"
+	boilerplate_structure "github.com/violetstair/go-api-boilerplate/pkg/go-api-boilerplate/boilerplate-structure"
 )
 
 func GetServerVersion() (ei boilerplate_structure.EOSInfo, err error) {
